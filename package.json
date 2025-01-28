@@ -1,0 +1,26 @@
+{
+  "name": "library-book-preview-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "nodemon": "nodemon app.js",
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "dev": "npm run nodemon && npm run tailwind",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Daniel Aiyon",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "library-book-preview": "file:",
+    "library-book-preview-app": "file:",
+    "nodemon": "^3.1.9",
+    "tailwindcss": "^4.0.0"
+  }
+}
