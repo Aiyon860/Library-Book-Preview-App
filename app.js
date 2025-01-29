@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
-const API_URL = "";
+const API_URL = process.env.GOOGLE_BOOKS_API_URL;
 const PORT = process.env.PORT || 3000;
 
 const yourBearerToken = process.env.BEARER_TOKEN;
@@ -27,18 +27,85 @@ if (process.env.NODE_ENV === "development") {
 
 const baseTitle = "Peek-A-Book";
 const baseUrl = "pages";
+let code;
 
 app.get('/', (req, res) => {
   try {
-    res.render(`layout.ejs`, {
+    code = 200;
+    res.status(code).render(`layout.ejs`, {
       tabTitle: `Home - ${baseTitle}`,
       webTitle: baseTitle,
-      contentPath: `${baseUrl}/home`
+      contentPath: `${baseUrl}/home`,
+      statusCode: code,
     });
   } catch (error) {
-    console.error(error.message);
-    res.render(`${baseUrl}/error`);
+    console.error("An error occurred while rendering the page:", error.message);
+    code = 500;
+    res.status(code).render("layout.ejs", {
+      tabTitle: `500 - Internal Server Error - ${baseTitle}`,
+      webTitle: baseTitle,
+      contentPath: `${baseUrl}/error`,
+      statusCode: code,
+    });
   }
+});
+
+app.get('/book', (req, res) => {
+  res.redirect('/books');
+});
+
+/* PERCOBAAN */
+app.get("/book/1", (req, res) => {
+  try {
+    code = 200;
+    res.status(code).render(`layout.ejs`, {
+      tabTitle: `Book 1 - ${baseTitle}`,
+      webTitle: baseTitle,
+      contentPath: `${baseUrl}/book_detail`,
+      statusCode: code,
+    });
+  } catch (error) {
+    console.error("An error occurred while rendering the page:", error.message);
+    code = 500;
+    res.status(code).render("layout.ejs", {
+      tabTitle: `500 - Internal Server Error - ${baseTitle}`,
+      webTitle: baseTitle,
+      contentPath: `${baseUrl}/error`,
+      statusCode: code,
+    });
+  }
+});
+
+app.get('/books', (req, res) => {
+  try {
+    code = 200;
+    res.status(code).render(`layout.ejs`, {
+      tabTitle: `Books - ${baseTitle}`,
+      webTitle: baseTitle,
+      contentPath: `${baseUrl}/books_section`,
+      statusCode: code,
+    });
+  } catch (error) {
+    console.error("An error occurred while rendering the page:", error.message);
+    code = 500;
+    res.status(code).render("layout.ejs", {
+      tabTitle: `500 - Internal Server Error - ${baseTitle}`,
+      webTitle: baseTitle,
+      contentPath: `${baseUrl}/error`,
+      statusCode: code,
+    });
+  }
+});
+
+app.use((req, res) => {
+  console.error(`404 Error: Route not found - ${req.method} ${req.url}`);
+  const code = 404;
+  res.status(code).render("layout.ejs", { 
+    tabTitle: `404 - Page Not Found - ${baseTitle}`,
+    webTitle: baseTitle,
+    contentPath: `${baseUrl}/error`,
+    statusCode: code,
+  });
 });
 
 app.listen(PORT, () => {

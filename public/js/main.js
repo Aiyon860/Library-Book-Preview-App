@@ -43,9 +43,3 @@ themeToggleBtn.addEventListener("click", function () {
   }
 });
 /* ========================================================================== */
-
-/* PARTIALS COMPONENT */
-/* ========================================================================== */
-const copyrightYear = document.getElementById("copyright-year");
-copyrightYear.innerText = new Date().getFullYear();
-/* ========================================================================== */

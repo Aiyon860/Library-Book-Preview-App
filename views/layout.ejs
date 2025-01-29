@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= tabTitle %></title>
-    <link href="/css/output.css" rel="stylesheet" />
-    <script defer src="/alpinejs/dist/cdn.min.js"></script>
-    <script src="/flowbite/dist/flowbite.min.js"></script>
-    <script src="/js/onload.js"></script>
-  </head>
-  <body>
-    <%- include("partials/header"); %>
-    <main>
-      <%- include(contentPath); %>
-    </main>
-    <% if (contentPath === "pages/home") { %>
-      <%- include("partials/footer"); %>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= tabTitle %>
+  </title>
+  <link href="/css/output.css" rel="stylesheet" />
+  <script src="/js/onload.js"></script>
+</head>
+
+<body>
+  <% const path="../partials" %> <%- include("partials/header"); %>
+  <main class="mt-16">
+    <% try { %>
+    <%# include(`${path}/maintenance.ejs`); if the website need fixing for a while. %> <%- include(contentPath, {
+              path, statusCode }); %>
+    <% if (contentPath !=="pages/error" && contentPath==="pages/home" ) { %>
+    <%- include("partials/footer"); %>
     <% } %>
-    <script src="/js/main.js"></script>
-  </body>
+    <% } catch (err) { %> <%- include("partials/500"); %>
+    <% } %>
+  </main>
+  <script src="/flowbite/dist/flowbite.min.js"></script>
+  <script src="/js/main.js"></script>
+  <% if (contentPath==="pages/home" ) { %>
+  <script src="/js/footer.js"></script>
+  <% } else if (contentPath==="pages/books_section" ) { %>
+  <script src="/js/books_section.js"></script>
+  <% } %>
+</body>
+
 </html>

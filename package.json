@@ -15,7 +15,6 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.0",
-    "alpinejs": "^3.14.8",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",

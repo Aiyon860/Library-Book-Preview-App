@@ -1,0 +1,5 @@
+<% if (statusCode === 404) { %>
+  <%- include(`${path}/404.ejs`); %>
+<% } else { %>
+  <%- include(`${path}/500.ejs`); %>
+<% } %>
