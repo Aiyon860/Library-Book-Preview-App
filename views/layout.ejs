@@ -18,7 +18,8 @@
     <%# include(`${path}/maintenance.ejs`); if the website need fixing for a while. %> <%- include(contentPath, {
               path, statusCode }); %>
     <% if (contentPath !=="pages/error" && contentPath==="pages/home" ) { %>
-    <%- include("partials/footer"); %>
+    <%- include("partials/footer");  %>
+    <%= JSON.stringify(featuredBooks); %>
     <% } %>
     <% } catch (err) { %> <%- include("partials/500"); %>
     <% } %>
@@ -28,7 +29,7 @@
   <% if (contentPath==="pages/home" ) { %>
   <script src="/js/footer.js"></script>
   <% } else if (contentPath==="pages/books_section" ) { %>
-  <script src="/js/books_section.js"></script>
+  <script src="/js/booksSection.js"></script>
   <% } %>
 </body>
 

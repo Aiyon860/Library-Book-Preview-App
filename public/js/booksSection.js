@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const minPriceSlider = document.getElementById("min-price");
   const maxPriceSlider = document.getElementById("max-price");
   const minPriceInput = document.getElementById("min-price-input");
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (minVal > maxVal) {
       minPriceSlider.value = maxVal;
       minPriceInput.value = maxVal;
-    } 
-    
+    }
+
     if (maxVal < minVal) {
       maxPriceSlider.value = minVal;
       maxPriceInput.value = minVal;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (minVal > maxVal) {
       minDiscountSlider.value = maxVal;
       minDiscountInput.value = maxVal;
-    } 
+    }
     if (maxVal < minVal) {
       maxDiscountSlider.value = minVal;
       maxDiscountInput.value = minVal;
@@ -44,46 +44,46 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /* PRICE */
   // Sync sliders with number inputs
-  minPriceSlider.addEventListener("input", function() {
+  minPriceSlider.addEventListener("input", function () {
     syncValues(minPriceSlider, minPriceInput);
     validateRangePrice();
   });
 
-  maxPriceSlider.addEventListener("input", function() {
+  maxPriceSlider.addEventListener("input", function () {
     syncValues(maxPriceSlider, maxPriceInput);
     validateRangePrice();
   });
 
   // Sync number inputs with sliders
-  minPriceInput.addEventListener("input", function() {
+  minPriceInput.addEventListener("input", function () {
     syncValues(minPriceInput, minPriceSlider);
     validateRangePrice();
   });
 
-  maxPriceInput.addEventListener("input", function() {
+  maxPriceInput.addEventListener("input", function () {
     syncValues(maxPriceInput, maxPriceSlider);
     validateRangePrice();
   });
 
   /* DISCOUNT */
   // Sync sliders with number inputs
-  minDiscountSlider.addEventListener("input", function() {
+  minDiscountSlider.addEventListener("input", function () {
     syncValues(minDiscountSlider, minDiscountInput);
     validateRangeDiscount();
   });
 
-  maxDiscountSlider.addEventListener("input", function() {
+  maxDiscountSlider.addEventListener("input", function () {
     syncValues(maxDiscountSlider, maxDiscountInput);
     validateRangeDiscount();
   });
 
   // Sync number inputs with sliders
-  minDiscountInput.addEventListener("input", function() {
+  minDiscountInput.addEventListener("input", function () {
     syncValues(minDiscountInput, minDiscountSlider);
     validateRangeDiscount();
   });
 
-  maxDiscountInput.addEventListener("input", function() {
+  maxDiscountInput.addEventListener("input", function () {
     syncValues(maxDiscountInput, maxDiscountSlider);
     validateRangePrice();
   });
