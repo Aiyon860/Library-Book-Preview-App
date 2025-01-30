@@ -1,34 +1,159 @@
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Featured Books</h2>
-          <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Discover the most popular and recommended books of the month, curated just for you.</p>
+    <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+      <h2
+        class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+      >
+        Featured Books
+      </h2>
+      <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        Discover the most popular and recommended books of the month, curated
+        just for you.
+      </p>
+    </div>
+    <div
+      class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
+    >
+      <!-- Book Card -->
+      <div
+        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+      >
+        <img
+          src="/images/books.svg"
+          alt="Book Title 1"
+          class="w-full object-cover rounded-lg mb-4"
+        />
+        <h3 class="mb-2 text-2xl font-semibold">The Infinite Library</h3>
+        <p class="text-xl font-light text-gray-500 dark:text-gray-400">
+          By Mark Ellison
+        </p>
+        <p class="mt-4 mb-6 text-gray-500 dark:text-gray-400">
+          A thrilling journey through time and knowledge, this novel explores a
+          mysterious library that contains every book ever written—including
+          those that have yet to be. As protagonist Daniel discovers a book
+          predicting his own future, he must unravel its secrets before time
+          runs out.
+        </p>
+        <a
+          href="/book/1"
+          class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-blue-900 flex justify-center items-center gap-2"
+        >
+          <svg
+            class="h-5 w-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
+            />
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+          View More</a
+        >
       </div>
-      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-          <!-- Book Card -->
-          <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <img src="images/books.svg" alt="Book Title 1" class="w-full h-56 object-cover rounded-lg mb-4">
-              <h3 class="mb-2 text-2xl font-semibold">The Infinite Library</h3>
-              <p class="text-xl font-light text-gray-500 dark:text-gray-400">By Mark Ellison</p>
-              <p class="mt-4 mb-6 text-gray-500 dark:text-gray-400">A thrilling journey through time and knowledge, this novel explores a mysterious library that contains every book ever written—including those that have yet to be. As protagonist Daniel discovers a book predicting his own future, he must unravel its secrets before time runs out.</p>
-              <a href="#" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-blue-900">View More</a>
-          </div>
-          <!-- Book Card -->
-          <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <img src="images/books.svg" alt="Book Title 2" class="w-full h-56 object-cover rounded-lg mb-4">
-              <h3 class="mb-2 text-2xl font-semibold">Echoes of the Forgotten</h3>
-              <p class="text-xl font-light text-gray-500 dark:text-gray-400">By Lillian Harper</p>
-              <p class="mt-4 mb-6 text-gray-500 dark:text-gray-400">A gripping historical fiction novel set in post-war Europe, where a young journalist uncovers lost letters that reveal a decades-old love story entangled with espionage and betrayal. As she pieces together the past, she realizes the letters may hold the key to her own family’s hidden history.</p>
-              <a href="#" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-blue-900">View More</a>
-          </div>
-          <!-- Book Card -->
-          <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <img src="images/books.svg" alt="Book Title 3" class="w-full h-56 object-cover rounded-lg mb-4">
-              <h3 class="mb-2 text-2xl font-semibold">The Quantum Paradox</h3>
-              <p class="text-xl font-light text-gray-500 dark:text-gray-400">By Dr. Nathan Wells</p>
-              <p class="mt-4 mb-6 text-gray-500 dark:text-gray-400">A mind-bending sci-fi thriller that delves into the mysteries of quantum physics and alternate realities. When a physicist accidentally creates a rift between dimensions, he must navigate parallel worlds to prevent a catastrophic collapse of reality itself.</p>
-              <a href="#" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-blue-900">View More</a>
-          </div>
+      <!-- Book Card -->
+      <div
+        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+      >
+        <img
+          src="/images/books.svg"
+          alt="Book Title 2"
+          class="w-full object-cover rounded-lg mb-4"
+        />
+        <h3 class="mb-2 text-2xl font-semibold">Echoes of the Forgotten</h3>
+        <p class="text-xl font-light text-gray-500 dark:text-gray-400">
+          By Lillian Harper
+        </p>
+        <p class="mt-4 mb-6 text-gray-500 dark:text-gray-400">
+          A gripping historical fiction novel set in post-war Europe, where a
+          young journalist uncovers lost letters that reveal a decades-old love
+          story entangled with espionage and betrayal. As she pieces together
+          the past, she realizes the letters may hold the key to her own
+          family’s hidden history.
+        </p>
+        <a
+          href="/book/1"
+          class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-blue-900 flex justify-center items-center gap-2"
+        >
+          <svg
+            class="h-5 w-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
+            />
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+          View More</a
+        >
       </div>
+      <!-- Book Card -->
+      <div
+        class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+      >
+        <img
+          src="/images/books.svg"
+          alt="Book Title 3"
+          class="w-full object-cover rounded-lg mb-4"
+        />
+        <h3 class="mb-2 text-2xl font-semibold">The Quantum Paradox</h3>
+        <p class="text-xl font-light text-gray-500 dark:text-gray-400">
+          By Dr. Nathan Wells
+        </p>
+        <p class="mt-4 mb-6 text-gray-500 dark:text-gray-400">
+          A mind-bending sci-fi thriller that delves into the mysteries of
+          quantum physics and alternate realities. When a physicist accidentally
+          creates a rift between dimensions, he must navigate parallel worlds to
+          prevent a catastrophic collapse of reality itself.
+        </p>
+        <a
+          href="/book/1"
+          class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-blue-900 flex justify-center items-center gap-2"
+        >
+          <svg
+            class="h-5 w-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
+            />
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+          View More</a
+        >
+      </div>
+    </div>
   </div>
 </section>

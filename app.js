@@ -54,8 +54,14 @@ app.get('/book', (req, res) => {
   res.redirect('/books');
 });
 
-/* PERCOBAAN */
-app.get("/book/1", (req, res) => {
+app.get("/book/:id", (req, res, next) => {
+  const id = req.params.id;
+
+  // Ensure ID is a positive integer
+  if (!/^\d+$/.test(id)) {
+    return next(); // Pass to next route (404 handler)
+  }
+
   try {
     code = 200;
     res.status(code).render(`layout.ejs`, {

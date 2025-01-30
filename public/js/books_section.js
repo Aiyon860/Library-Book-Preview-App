@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function validateRangePrice() {
-    const minVal = parseInt(minPriceSlider.value);
-    const maxVal = parseInt(maxPriceSlider.value);
+    const minVal = parseFloat(minPriceSlider.value);
+    const maxVal = parseFloat(maxPriceSlider.value);
 
     if (minVal > maxVal) {
       minPriceSlider.value = maxVal;
       minPriceInput.value = maxVal;
     } 
+    
     if (maxVal < minVal) {
       maxPriceSlider.value = minVal;
       maxPriceInput.value = minVal;
@@ -28,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function validateRangeDiscount() {
-    const minVal = parseInt(minDiscountSlider.value);
-    const maxVal = parseInt(maxDiscountSlider.value);
+    const minVal = parseFloat(minDiscountSlider.value);
+    const maxVal = parseFloat(maxDiscountSlider.value);
 
     if (minVal > maxVal) {
       minDiscountSlider.value = maxVal;
