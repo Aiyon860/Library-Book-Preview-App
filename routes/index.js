@@ -1,21 +1,34 @@
 import { baseTitle, baseUrl } from "../app.js";
-import { fetchFeaturedBooks } from "../services/googleBooksService.js";
-import { internalServerError } from "../utils/errorHandler.js";
+import categories from "../database/categoryDatabase.js";
+import { getFeaturedBooks } from "../controllers/bookController.js";
+import { capitalizeWord, fetchSvg } from "../utils/helpers.js";
 
 const mainEntryPoint = async (req, res) => {
-  try {
-    const code = 200;
+  const books = await getFeaturedBooks(req, res, baseTitle, baseUrl);
 
-    res.status(code).render(`layout.ejs`, {
-      tabTitle: `Home - ${baseTitle}`,
-      webTitle: baseTitle,
-      contentPath: `${baseUrl}/home`,
-      statusCode: code,
-      featuredBooks: fetchFeaturedBooks,
-    });
-  } catch (error) {
-    internalServerError(req, res, baseTitle, baseUrl, error);
+  if (!books) {
+    throw new Error("Cannot fetch data from Google Books API.");
   }
+
+  const firstEightCategories = await Promise.all(
+    categories
+      .slice(0, 8)
+      .map(async (category) => [
+        capitalizeWord(category[0]),
+        await fetchSvg(category[1]),
+      ])
+  );
+
+  const data = {
+    tabTitle: `Home - ${baseTitle}`,
+    webTitle: baseTitle,
+    contentPath: `${baseUrl}/home`,
+    statusCode: 200,
+    books,
+    categoryList: firstEightCategories,
+  };
+
+  res.status(200).render(`layout.ejs`, data);
 };
 
 export default mainEntryPoint;

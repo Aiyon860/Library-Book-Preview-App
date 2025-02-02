@@ -8,24 +8,28 @@
     <%= tabTitle %>
   </title>
   <link href="/css/output.css" rel="stylesheet" />
+  <link href="/aos/dist/aos.css" rel="stylesheet" />
   <script src="/js/onload.js"></script>
 </head>
 
 <body>
   <% const path="../partials" %> <%- include("partials/header"); %>
-  <main class="mt-16">
+  <main id="main-page" class="mt-16">
     <% try { %>
     <%# include(`${path}/maintenance.ejs`); if the website need fixing for a while. %> <%- include(contentPath, {
               path, statusCode }); %>
     <% if (contentPath !=="pages/error" && contentPath==="pages/home" ) { %>
     <%- include("partials/footer");  %>
-    <%= JSON.stringify(featuredBooks); %>
     <% } %>
-    <% } catch (err) { %> <%- include("partials/500"); %>
+    <% } catch (err) { %> <% console.error(err.message); %> <%- include("partials/500"); %>
     <% } %>
   </main>
   <script src="/flowbite/dist/flowbite.min.js"></script>
+  <script src="/aos/dist/aos.js"></script>
   <script src="/js/main.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <% if (contentPath==="pages/home" ) { %>
   <script src="/js/footer.js"></script>
   <% } else if (contentPath==="pages/books_section" ) { %>
