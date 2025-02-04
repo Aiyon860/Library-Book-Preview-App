@@ -73,10 +73,6 @@ const getFeaturedBooks = async (req, res, baseTitle, baseUrl) => {
 const getSpecifiedBookById = async (req, res, next, baseTitle, baseUrl) => {
   const id = req.params.id;
 
-  if (!/^\d+$/.test(id)) {
-    return next(); // Pass to next route (404 handler)
-  }
-
   try {
     const code = 200;
 
@@ -87,15 +83,15 @@ const getSpecifiedBookById = async (req, res, next, baseTitle, baseUrl) => {
     };
 
     // TODO: MAKE IT DYNAMIC
-    // const specifiedBook = await fetchBooks(`${API_URL}/${id}`, config);
-    // const modeledBook = new Book(specifiedBook);
+    const specifiedBook = await fetchBooks(`${API_URL}/${id}`, config);
+    const modeledBook = new Book(specifiedBook);
 
     const data = {
-      tabTitle: `Book ${id} - ${baseTitle}`,
+      tabTitle: `${modeledBook.title} - ${baseTitle}`,
       webTitle: baseTitle,
       contentPath: `${baseUrl}/book_detail`,
       statusCode: code,
-      // book: modeledBook,
+      book: modeledBook,
     };
 
     res.status(code).render(`layout.ejs`, data);

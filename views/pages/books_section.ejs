@@ -9,7 +9,7 @@
           class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none"
         >
           <svg
-            class="w-6 h-6 text-gray-500 dark:text-gray-400"
+            class="w-5 h-5 text-gray-500 dark:text-gray-400"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -28,7 +28,7 @@
         <input
           type="text"
           id="search-navbar"
-          class="block w-full lg:w-96 p-3 ps-14 text-md lg:text-lg text-gray-900 border border-gray-300 rounded-xl bg-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="block w-full lg:w-96 p-2 ps-14 text-md text-gray-900 border border-gray-300 rounded-xl bg-gray-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Browse books...."
         />
       </div>
@@ -232,138 +232,109 @@
     <div
       class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4"
     >
-      <div
+      <% books.forEach((book) => { %>
+        <div
         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
       >
         <div class="w-full object-cover">
-          <a href="#">
+          <a href="/book/<%= book.id %>">
             <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
+              class="mx-auto h-full md:h-96 w-full dark:hidden"
+              src="<%= book.thumbnail %>"
               alt="books"
             />
             <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
+              class="mx-auto hidden h-full md:h-96 w-full dark:block"
+              src="<%= book.thumbnail %>"
               alt="books"
             />
           </a>
         </div>
         <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 35% off
-            </span>
-          </div>
-
           <a
-            href="#"
+            href="/book/<%= book.id %>"
             class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >The Shadow of Eternity</a
+            ><%= book.title %></a
           >
+
+          <p class="gap-2 text-[0.85rem] font-medium text-gray-900 dark:text-gray-300">by <%= book.authors %></p>
+          <p class="gap-2 text-[0.70rem] font-medium text-gray-900 dark:text-gray-300">Published on <%= book.publishedDate %></p>
 
           <div class="mt-2 flex items-center gap-2">
             <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
+              <% for(let i = 1; i <= 5; ++i) { %>
+                <% if (i <= book.averageRating) { %>
+                    <svg
+                      class="h-4 w-4 text-yellow-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+                      />
+                    </svg>
+                <% } else { %>
+                <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-width="2" d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"/>
+                </svg>
+                <% } %>
+              <% } %>   
             </div>
 
-            <p class="text-sm font-medium text-gray-900 dark:text-white">5.0</p>
+            <p class="text-sm font-medium text-gray-900 dark:text-white"><%= book.averageRating %></p>
             <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (455)
+              (<%= book.ratingsCount %>)
             </p>
           </div>
 
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
+          <ul class="mt-4 flex items-center gap-4">
+            <li class="grid grid-cols-2 gap-y-2">
+              <% for (const [name, color] of Object.entries(book.categories)) { %>
+                <div class="flex items-center justify-between gap-4">
+                  <span
+                  <% 
+                    const colorMap = {
+                      red: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
+                      orange: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300",
+                      amber: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300",
+                      yellow: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
+                      lime: "bg-lime-100 text-lime-800 dark:bg-lime-900 dark:text-lime-300",
+                      green: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
+                      emerald: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300",
+                      teal: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300",
+                      cyan: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300",
+                      sky: "bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-300",
+                      blue: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+                      indigo: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300",
+                      violet: "bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-300",
+                      purple: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
+                      fuchsia: "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-300",
+                      pink: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300",
+                      rose: "bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-300",
+                      stone: "bg-stone-100 text-stone-800 dark:bg-stone-900 dark:text-stone-300"
+                    };
+                    const classes = colorMap[color] || "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300";
+                  %>
+                    class="me-2 rounded px-2.5 py-0.5 text-xs font-medium <%= classes %>"
+                  >
+                    <%= name %>
+                  </span>
+                </div>
+              <% } %>
             </li>
           </ul>
 
           <div class="mt-4 flex items-center justify-between gap-4">
             <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
+              class="<% book.saleability ? "text-2xl" : "text-md" %> font-extrabold leading-tight text-gray-900 dark:text-white"
             >
-              $1,699
+              <%= book.saleability ? `$${book.price}` : "Not for sale" %>
             </p>
 
             <a
-              href="/book/1"
+              href="/book/<%= book.id %>"
               class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               <svg
@@ -392,1182 +363,13 @@
           </div>
         </div>
       </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 15% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >Whispers in the Fog</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (1,233)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m7.171 12.906-2.153 6.411 2.672-.89 1.568 2.34 1.825-5.183m5.73-2.678 2.154 6.411-2.673-.89-1.568 2.34-1.825-5.183M9.165 4.3c.58.068 1.153-.17 1.515-.628a1.681 1.681 0 0 1 2.64 0 1.68 1.68 0 0 0 1.515.628 1.681 1.681 0 0 1 1.866 1.866c-.068.58.17 1.154.628 1.516a1.681 1.681 0 0 1 0 2.639 1.682 1.682 0 0 0-.628 1.515 1.681 1.681 0 0 1-1.866 1.866 1.681 1.681 0 0 0-1.516.628 1.681 1.681 0 0 1-2.639 0 1.681 1.681 0 0 0-1.515-.628 1.681 1.681 0 0 1-1.867-1.866 1.681 1.681 0 0 0-.627-1.515 1.681 1.681 0 0 1 0-2.64c.458-.361.696-.935.627-1.515A1.681 1.681 0 0 1 9.165 4.3ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Seller
-              </p>
-            </li>
-
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $1,199
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 35% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >Fragments of Tomorrow</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (879)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $799
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 10% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >The Vanishing Hour</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4,8</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (2,957)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $499
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 10% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >Echoes from the Abyss</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4.8</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (4,263)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m7.171 12.906-2.153 6.411 2.672-.89 1.568 2.34 1.825-5.183m5.73-2.678 2.154 6.411-2.673-.89-1.568 2.34-1.825-5.183M9.165 4.3c.58.068 1.153-.17 1.515-.628a1.681 1.681 0 0 1 2.64 0 1.68 1.68 0 0 0 1.515.628 1.681 1.681 0 0 1 1.866 1.866c-.068.58.17 1.154.628 1.516a1.681 1.681 0 0 1 0 2.639 1.682 1.682 0 0 0-.628 1.515 1.681 1.681 0 0 1-1.866 1.866 1.681 1.681 0 0 0-1.516.628 1.681 1.681 0 0 1-2.639 0 1.681 1.681 0 0 0-1.515-.628 1.681 1.681 0 0 1-1.867-1.866 1.681 1.681 0 0 0-.627-1.515 1.681 1.681 0 0 1 0-2.64c.458-.361.696-.935.627-1.515A1.681 1.681 0 0 1 9.165 4.3ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Seller
-              </p>
-            </li>
-
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $499
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 5% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >The Astral Paradox</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (1,076)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $2,599
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 20% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >Secrets of the Silver Key</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4.7</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (387)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $699
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-      >
-        <div class="w-full object-cover">
-          <a href="#">
-            <img
-              class="mx-auto h-full dark:hidden"
-              src="images/books.svg"
-              alt="books"
-            />
-            <img
-              class="mx-auto hidden h-full dark:block"
-              src="images/books.svg"
-              alt="books"
-            />
-          </a>
-        </div>
-        <div class="pt-6">
-          <div class="mb-4 flex items-center justify-between gap-4">
-            <span
-              class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-            >
-              Up to 35% off
-            </span>
-          </div>
-
-          <a
-            href="#"
-            class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-            >The Last Ember</a
-          >
-
-          <div class="mt-2 flex items-center gap-2">
-            <div class="flex items-center">
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-
-              <svg
-                class="h-4 w-4 text-yellow-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
-                />
-              </svg>
-            </div>
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
-            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              (4,775)
-            </p>
-          </div>
-
-          <ul class="mt-2 flex items-center gap-4">
-            <li class="flex items-center gap-2">
-              <svg
-                class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="2"
-                  d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                />
-              </svg>
-              <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Best Price
-              </p>
-            </li>
-          </ul>
-
-          <div class="mt-4 flex items-center justify-between gap-4">
-            <p
-              class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white"
-            >
-              $899
-            </p>
-
-            <a
-              href="/book/1"
-              class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                class="-ms-2 me-2 h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
+      <% }) %>
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-between">
+      <p class="text-gray-900 dark:text-gray-300">WIP: Showing 337 results</p>
       <!-- Previous Button -->
-      <a
+      <div class="flex">
+        <a
         href="#"
         class="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
@@ -1609,6 +411,7 @@
           />
         </svg>
       </a>
+      </div>
     </div>
   </div>
   <!-- Filter modal -->

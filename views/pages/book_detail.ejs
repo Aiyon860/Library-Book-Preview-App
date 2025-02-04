@@ -2,146 +2,105 @@
   <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
     <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
       <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
-        <img class="w-full dark:hidden" src="/images/books.svg" alt="books" draggable="false" />
-        <img class="w-full hidden dark:block" src="/images/books.svg" alt="books" draggable="false" />
+        <img class="w-full dark:hidden h-full lg:h-[35rem]" src="<%= book.thumbnail %>" alt="books" draggable="false" />
+        <img class="w-full hidden dark:block h-full lg:h-[35rem]" src="<%= book.thumbnail %>" alt="books" draggable="false" />
       </div>
 
       <div class="mt-6 sm:mt-8 lg:mt-0">
         <h1
           class="text-xl font-semibold text-gray-900 sm:text-3xl dark:text-white"
         >
-        The Pragmatic Programmer
+        <%= book.title %>
         </h1>
-        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">by Andrew Hunt, David Thomas</p>
-        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Addison-Wesley, 1999</p>
-        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pages: 352 pages</p>
-        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Genres: Programming, Software Development</p>
-        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Language: English</p>
+        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">by <%= book.authors %></p>
+        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300"><%= book.publisher %>, <%= new Date(book.publishedDate).getUTCFullYear() %></p>
+        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pages: <%= book.pageCount %> page<%= book.pageCount > 1 ? 's' : '' %></p>
+        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Categories: 
+          <% const combinedCategories = [] %>
+          <% for (const [name] of Object.entries(book.categories)) { %>
+            <% combinedCategories.push(name) %>
+          <% } %>
+          <%= combinedCategories.join(", ") %>
+        </p>
+        <p class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">Language: <%= book.language %></p>
         <div class="mt-6 sm:items-center sm:gap-4 sm:flex">
           <p
             class="text-2xl font-extrabold text-gray-900 dark:text-white"
           >
-            $1,249.99 
+            <%= book.saleability ? `$${book.price}` : "Not for sale" %>
           </p>
 
           <div class="flex items-center gap-2 mt-2 sm:mt-0">
             <div class="flex items-center gap-1">
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                />
-              </svg>
+              <% for(let i = 1; i <= 5; ++i) { %>
+                <% if (i <= book.averageRating) { %>
+                    <svg
+                      class="h-4 w-4 text-yellow-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z"
+                      />
+                    </svg>
+                <% } else { %>
+                <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-width="2" d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"/>
+                </svg>
+                <% } %>
+              <% } %>
             </div>
             <p
               class="text-sm font-medium leading-none text-gray-500 dark:text-gray-400"
             >
-              (5.0)
+              (<%= book.averageRating %>)
             </p>
-            <a
-              href="#"
-              class="text-sm font-medium leading-none text-gray-900 underline hover:no-underline dark:text-white"
+            <p
+              class="text-sm font-medium leading-none text-gray-900 dark:text-white"
             >
-              345 Reviews
-            </a>
+              <%= book.ratingsCount %> Review<%= book.ratingsCount == 1 ? '' : 's' %>
+            </p>
           </div>
         </div>
 
-        <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-4">
-          <a
-            href="#"
-            title=""
-            class="text-white mt-4 sm:mt-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex items-center justify-center mb-2"
-            role="button"
-          >
-            <svg
-              class="w-5 h-5 -ms-2 me-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
+        <% if (book.saleability) { %>
+          <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-4">
+            <a
+              href="https://play.google.com/store/books/details?id=<%= book.id %>"
+              target="_blank"
+              class="text-white mt-4 sm:mt-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex items-center justify-center mb-2"
+              role="button"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
-              />
-            </svg>
-
-            Want to buy?
-          </a>
-        </div>
+              <svg
+                class="w-5 h-5 -ms-2 me-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
+                />
+              </svg>
+  
+              Want to buy?
+            </a>
+          </div>
+        <% } %>
 
         <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
         <h3 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Book Description</h3>
 
-        <p class="mb-6 text-gray-500 dark:text-gray-400">
-          A mind-bending sci-fi thriller that delves into the mysteries of quantum physics and alternate realities. When a physicist accidentally creates a rift between dimensions, he must navigate parallel worlds to prevent a catastrophic collapse of reality itself.
-        </p>
+        <p class="mb-6 text-gray-500 dark:text-gray-400"><%- book.description %></p>
       </div>
     </div>
   </div>

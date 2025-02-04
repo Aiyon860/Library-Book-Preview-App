@@ -1,5 +1,5 @@
 import { baseTitle, baseUrl } from "../app.js";
-import categories from "../database/categoryDatabase.js";
+import { categories } from "../database/categoryDatabase.js";
 import { getFeaturedBooks } from "../controllers/bookController.js";
 import { capitalizeWord, fetchSvg } from "../utils/helpers.js";
 
@@ -14,8 +14,8 @@ const mainEntryPoint = async (req, res) => {
     categories
       .slice(0, 8)
       .map(async (category) => [
-        capitalizeWord(category[0]),
-        await fetchSvg(category[1]),
+        capitalizeWord(category.name),
+        await fetchSvg(category.svgFile),
       ])
   );
 

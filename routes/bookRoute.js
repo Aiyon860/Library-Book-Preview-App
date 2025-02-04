@@ -5,7 +5,7 @@ import {
 } from "../controllers/bookController.js";
 
 const showAllBooks = (req, res) =>
-  getAllBooks(req, res, app.baseTitle, app.baseUrl);
+  getAllBooks(req, res, app.baseTitle, app.baseUrl, 0);
 const showSpecifiedBookById = (req, res, next) =>
   getSpecifiedBookById(req, res, next, app.baseTitle, app.baseUrl);
 

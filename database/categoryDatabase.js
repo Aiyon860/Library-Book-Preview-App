@@ -1,75 +1,195 @@
-const categories = [
-  ["FICTION", "book-open.svg"],
-  ["SELF-HELP", "light-bulb.svg"],
-  ["BUSINESS", "briefcase.svg"],
-  ["TECHNOLOGY", "computer-speaker.svg"],
-  ["SCIENCE", "bug.svg"],
-  ["PSYCHOLOGY", "brain.svg"],
-  ["TRAVEL", "globe.svg"],
-  ["HEALTH", "heart.svg"],
-  ["ANTIQUES", "library.svg"],
-  ["COLLECTIBLES", "star.svg"],
-  ["LITERARY", "pencil.svg"],
-  ["COLLECTIONS", "books.svg"],
-  ["ARCHITECTURE", "building.svg"],
-  ["CRITICISM", "chat-bubble-left-right.svg"],
-  ["ART", "paint-brush.svg"],
-  ["MATHEMATICS", "calculator.svg"],
-  ["BIBLES", "book-bible.svg"],
-  ["MEDICAL", "hospital.svg"],
-  ["BIOGRAPHY", "document-text.svg"],
-  ["AUTOBIOGRAPHY", "pencil-square.svg"],
-  ["MUSIC", "musical-note.svg"],
-  ["BODY", "user-group.svg"],
-  ["MIND", "sparkles.svg"],
-  ["SPIRIT", "adjustments-horizontal.svg"],
-  ["NATURE", "leaf.svg"],
-  ["ECONOMICS", "chart-bar.svg"],
-  ["PERFORMING", "mask.svg"],
-  ["ARTS", "palette.svg"],
-  ["COMICS", "book-open.svg"],
-  ["GRAPHIC", "color-swatch.svg"],
-  ["NOVELS", "document.svg"],
-  ["PETS", "paw-print.svg"],
-  ["COMPUTERS", "device-desktop.svg"],
-  ["PHILOSOPHY", "academic-cap.svg"],
-  ["COOKING", "fire.svg"],
-  ["PHOTOGRAPHY", "camera.svg"],
-  ["CRAFTS", "scissors.svg"],
-  ["HOBBIES", "puzzle-piece.svg"],
-  ["POETRY", "pencil.svg"],
-  ["DESIGN", "beaker.svg"],
-  ["POLITICAL", "flag.svg"],
-  ["DRAMA", "mask.svg"],
-  ["EDUCATION", "academic-cap.svg"],
-  ["REFERENCE", "bookmark.svg"],
-  ["FAMILY", "users.svg"],
-  ["RELATIONSHIPS", "heart.svg"],
-  ["RELIGION", "church.svg"],
-  ["GAMES", "controller.svg"],
-  ["ACTIVITIES", "target.svg"],
-  ["GARDENING", "leaf.svg"],
-  ["SOCIAL", "handshake.svg"],
-  ["FITNESS", "bolt.svg"],
-  ["SPORTS", "trophy.svg"],
-  ["RECREATION", "globe-alt.svg"],
-  ["HISTORY", "archive-box.svg"],
-  ["STUDY", "book-open.svg"],
-  ["AIDS", "first-aid.svg"],
-  ["HOUSE", "home.svg"],
-  ["HOME", "home-modern.svg"],
-  ["ENGINEERING", "wrench.svg"],
-  ["HUMOR", "emoji-happy.svg"],
-  ["TRANSPORTATION", "truck.svg"],
-  ["JUVENILE", "user.svg"],
-  ["NONFICTION", "document-text.svg"],
-  ["TRUE", "check-circle.svg"],
-  ["CRIME", "finger-print.svg"],
-  ["LANGUAGE", "globe-europe-africa.svg"],
-  ["DISCIPLINES", "academic-cap.svg"],
-  ["YOUNG", "user-group.svg"],
-  ["ADULT", "user-circle.svg"],
-  ["LAW", "scale.svg"]
+import { getCategoryColor } from "../utils/helpers.js";
+
+const tailwindColors = [
+  "red",
+  "orange",
+  "amber",
+  "yellow",
+  "lime",
+  "green",
+  "emerald",
+  "teal",
+  "cyan",
+  "sky",
+  "blue",
+  "indigo",
+  "violet",
+  "purple",
+  "fuchsia",
+  "pink",
+  "rose",
 ];
 
-export default categories;
+const categories = [
+  {
+    name: "FICTION",
+    svgFile: "book-open.svg",
+  },
+  {
+    name: "SELF-HELP",
+    svgFile: "light-bulb.svg",
+  },
+  {
+    name: "BUSINESS",
+    svgFile: "briefcase.svg",
+  },
+  {
+    name: "TECHNOLOGY",
+    svgFile: "computer-speaker.svg",
+  },
+  {
+    name: "SCIENCE",
+    svgFile: "bug.svg",
+  },
+  {
+    name: "PSYCHOLOGY",
+    svgFile: "brain.svg",
+  },
+  {
+    name: "TRAVEL",
+    svgFile: "globe.svg",
+  },
+  {
+    name: "HEALTH",
+    svgFile: "heart.svg",
+  },
+  {
+    name: "ANTIQUES",
+    svgFile: "library.svg",
+  },
+  {
+    name: "COLLECTIBLES",
+    svgFile: "star.svg",
+  },
+  {
+    name: "LITERARY",
+    svgFile: "pencil.svg",
+  },
+  {
+    name: "COLLECTIONS",
+    svgFile: "books.svg",
+  },
+  {
+    name: "ARCHITECTURE",
+    svgFile: "building.svg",
+  },
+  {
+    name: "CRITICISM",
+    svgFile: "chat-bubble-left-right.svg",
+  },
+  {
+    name: "ART",
+    svgFile: "paint-brush.svg",
+  },
+  {
+    name: "MATHEMATICS",
+    svgFile: "calculator.svg",
+  },
+  {
+    name: "BIBLES",
+    svgFile: "book-bible.svg",
+  },
+  {
+    name: "MEDICAL",
+    svgFile: "hospital.svg",
+  },
+  {
+    name: "BIOGRAPHY",
+    svgFile: "document-text.svg",
+  },
+  {
+    name: "AUTOBIOGRAPHY",
+    svgFile: "pencil-square.svg",
+  },
+  {
+    name: "MUSIC",
+    svgFile: "musical-note.svg",
+  },
+  {
+    name: "PHILOSOPHY",
+    svgFile: "academic-cap.svg",
+  },
+  {
+    name: "COOKING",
+    svgFile: "fire.svg",
+  },
+  {
+    name: "PHOTOGRAPHY",
+    svgFile: "camera.svg",
+  },
+  {
+    name: "CRAFTS",
+    svgFile: "scissors.svg",
+  },
+  {
+    name: "HOBBIES",
+    svgFile: "puzzle-piece.svg",
+  },
+  {
+    name: "POETRY",
+    svgFile: "pencil.svg",
+  },
+  {
+    name: "DESIGN",
+    svgFile: "beaker.svg",
+  },
+  {
+    name: "POLITICAL",
+    svgFile: "flag.svg",
+  },
+  {
+    name: "DRAMA",
+    svgFile: "mask.svg",
+  },
+  {
+    name: "EDUCATION",
+    svgFile: "academic-cap.svg",
+  },
+  {
+    name: "REFERENCE",
+    svgFile: "bookmark.svg",
+  },
+  {
+    name: "FAMILY",
+    svgFile: "users.svg",
+  },
+  {
+    name: "RELATIONSHIPS",
+    svgFile: "heart.svg",
+  },
+  {
+    name: "RELIGION",
+    svgFile: "church.svg",
+  },
+  {
+    name: "GAMES",
+    svgFile: "controller.svg",
+  },
+  {
+    name: "ACTIVITIES",
+    svgFile: "target.svg",
+  },
+  {
+    name: "HISTORY",
+    svgFile: "archive-box.svg",
+  },
+  {
+    name: "ENGINEERING",
+    svgFile: "wrench.svg",
+  },
+  {
+    name: "HUMOR",
+    svgFile: "emoji-happy.svg",
+  },
+  {
+    name: "TRANSPORTATION",
+    svgFile: "truck.svg",
+  },
+  {
+    name: "LAW",
+    svgFile: "scale.svg",
+  },
+];
+
+export { categories, tailwindColors };
+
